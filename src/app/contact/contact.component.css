@@ -1,0 +1,72 @@
+p{
+    margin-bottom: 0px;
+    font-size: 32px;
+    color: black;
+    font-family: Assistant;
+    font-weight: 900;
+  }
+
+  h1{
+      font-weight: 600;
+  }
+.container{
+    width: 1000px;
+    /* height: 200px; */
+    padding-top: 15px;
+    padding-bottom: 18px ;
+}
+
+.container div{
+    float: right;
+}
+.d1{
+    /* widtsh: 35%; */
+    /* float: right; */
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 130px;
+    /* padding-top: 30px; */
+    width: 300px;
+}
+
+.d2{
+    /* padding-top: 30px; */
+    width: 265px;
+    height: 265px;
+    padding-right:20px ;
+    box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.5);
+    background-image: linear-gradient(to right, #00ccff, #08cded,#15ced1, #00d4cd, #00d4b5, #0ed4aa, #20d39d, #31d28f);
+}
+
+label{
+    font-size: 14px;
+}
+
+.d2 label{
+    float: right;
+}
+
+input{
+    /* margin-bottom: 15px; */
+    height: 38px;
+    width: 220px;
+    background-color: whitesmoke;
+    border-image:linear-gradient(to right, #00ccff, #08cded,#15ced1, #00d4cd, #00d4b5, #0ed4aa, #20d39d, #31d28f)1;
+    font-size: large;
+    float: right;
+}
+
+textarea{
+    width: 220px;
+    background-color: whitesmoke;
+    border-image:linear-gradient(to right, #00ccff, #08cded,#15ced1, #00d4cd, #00d4b5, #0ed4aa, #20d39d, #31d28f)1;
+    font-size: large;
+    border-width: 2px;
+    float: right;
+}
+
+button{
+    float: right;
+    margin-right: 90px;
+    margin-top: 20px;
+}

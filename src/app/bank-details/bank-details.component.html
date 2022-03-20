@@ -1,0 +1,25 @@
+<html lang="en" style="direction: rtl; text-align: center;">
+<div class="bankBorder">
+    <div><img src='../assets/img/Asset36.png' width="100%"></div>
+    <div class="title">
+        <div style="margin-top: 10px;"><img src='../assets/icon/Asset18.png' width="100px"></div>
+        <div>
+            <p>פרטי חשבון בנק</p>
+            <div class="underLine"></div>
+        </div>
+    </div>
+    <div class="bank">
+        <p style="font-size:30px; font-weight: 100;">פרטי הבנק שלי:</p>
+        <form class="form-group">
+        <input type="text" placeholder="שם בעל חשבון" name="OwnerName" [(ngModel)]="newBankAccount.OwnerName">
+        <input type="text" placeholder="בנק"  name="Bank" [(ngModel)]="newBankAccount.Bank">
+        <input type="text" placeholder="סניף" name="Branch" [(ngModel)]="newBankAccount.Branch">
+        <input type="text" placeholder="מספר חשבון" name="AccountNumber" [(ngModel)]="newBankAccount.AccountNumber">
+        <div><img src='../assets/icon/Asset25.png' style=" margin-top: 10px;" width="180" (click)="save()"></div>
+    </form>
+    </div>
+    <router-outlet></router-outlet>
+</div>
+
+</html>
+

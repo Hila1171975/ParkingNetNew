@@ -1,0 +1,83 @@
+.loginBorder{
+    width: 600px; 
+    /* border: 2px solid; */
+    /* border-image:linear-gradient(to right, #00ccff, #08cded,#15ced1, #00d4cd, #00d4b5, #0ed4aa, #20d39d, #31d28f)1; */
+    margin-right: 25%;
+    margin-bottom: 30px;
+    margin-top: 8px;
+    box-shadow: 0px 0px 20px 4px rgba(0,0,0,0.8);
+    animation: fadeIn 3s ;
+}
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+    
+}
+div{
+    height: 100%;
+    width: 300px;
+    float: right;
+}
+
+.signUp{
+    background-image: linear-gradient(to right, #00ccff, #08cded,#15ced1, #00d4cd, #00d4b5, #0ed4aa, #20d39d, #31d28f);
+    border-radius: 0px 60px 60px 0px;
+    padding-right: 50px;
+
+}
+.signIn{
+    height: 460px;
+    padding-right: 50px;
+
+}
+
+.container{
+    padding: 12px 5px;
+    font-family: Assistant ;
+}
+
+h1{
+    margin-right: 1px;
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-weight: bold;
+}
+.container input{
+    background-color: #e6e6e6;
+    margin-bottom: 10px;
+}
+
+label{
+    font-size: 14px;
+}
+input {
+    width: 200px;
+    height: 34px;
+    border: none;
+   }  
+  
+::placeholder{
+    color: #808080;
+}
+
+ #img1{
+    height: 32px;
+    margin-right: 30px;
+    margin-top: 176PX;
+ }
+ #img2{
+     height: 32px;
+     margin-right: 30px;
+     margin-top: 20PX;
+ }
+
+/* .alert-danger{
+    width: 200px;
+    height: 15px;
+    float: right;
+    z-index: 10;
+} */
