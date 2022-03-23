@@ -4,7 +4,7 @@
         <div class="div1">
             <div><img src='../assets/icon/Asset7.png'>הכנס מיקום</div>
             <!-- <input type="text" placeholder="מיקומך הנוכחי" id="location" name="location" [(ngModel)]="myLocation" required #location="ngModel"> -->
-            <input ngx-google-places-autocomplete  #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
+            <input ngx-google-places-autocomplete  #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" value="{{address}}"/>
          
             <!-- <div  class="alert-danger" *ngIf="location.invalid && ( location.dirty || location.touched)&&submited">
                 <p *ngIf="location.errors?.['required']">שדה חובה</p>   
