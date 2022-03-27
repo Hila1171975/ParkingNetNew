@@ -30,9 +30,13 @@ export class EditParkingDetailsComponent implements OnInit {
   constructor(public ParkingService: ParkingService, public ActiveRoute: ActivatedRoute, public UserService: UserService, public sanitizer: DomSanitizer,public router: Router) { }
 
   public handleAddressChange(address: Address) {
-    this.lat = address.geometry.location.lat()
+    this.newParking.Lat = address.geometry.location.lat()
     debugger;
-    this.lat = address.geometry.location.lng()
+    this.newParking.Lan= address.geometry.location.lng()
+    this.newParking.Address= address.formatted_address;
+    debugger
+    console.log(this.newParking.Address);
+
 
   }
 
@@ -60,6 +64,7 @@ export class EditParkingDetailsComponent implements OnInit {
 
   add() {
     this.newParking.SizeFor = this.sizeForStr()
+    debugger;
     if (this.newParking.Id == undefined) {
       this.ParkingService.addParking(this.newParking).
         subscribe(data => { this.b = data }, err => { console.log(err) })

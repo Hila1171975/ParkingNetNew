@@ -49,7 +49,7 @@
             <label for="ShadyFalse"> ללא צל</label>
 
             <br>
-            <label>מיועד ל:<br>
+            <!-- <label>מיועד ל:<br>
                 <label> <input type="checkbox" name="checkbox1" [(ngModel)]="ch1"> רכב פרטי</label>
                 <label> <input style="margin-right: 10px;" type="checkbox" name="checkbox2" [(ngModel)]="ch2">
                     מסחרי</label>
@@ -57,10 +57,11 @@
                 </label>
                 <label> <input style="margin-right: 10px;" type="checkbox" name="checkbox4" [(ngModel)]="ch4"> רכב משא
                     גדול</label>
-            </label>
+            </label> -->
             <br>
             <h1 style="font-weight: 900; font-size: 30px;">הערות:</h1><br>
-            <label>זמן ביטול מראש:</label> <input style="margin-right: 10px; width: 200px; height: 24px;" type="number"
+            <textarea name="messages" required></textarea><br>
+            <label>זמן ביטול מראש:</label> <input style="margin-right: 10px; width: 100px; height: 24px;" type="number"
                 placeholder="1" id="cancelTime" name="cancelTime">
         </form>
     </div>

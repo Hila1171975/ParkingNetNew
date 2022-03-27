@@ -23,6 +23,8 @@ import { MapComponent } from './map/map.component';
 import { PaymentComponent } from './payment/payment.component';
 import { SearchComponent } from './search/search.component';
 import { CalenderComponent } from './calender/calender.component';
+import { RentListComponent } from './rent-list/rent-list.component';
+import { MyAreaComponent } from './my-area/my-area.component';
 
 
 import { BankAccountService } from './Services/bank-account.service';
@@ -45,7 +47,9 @@ import { UserService } from './Services/user.service';
     MapComponent,
     PaymentComponent,
     SearchComponent,
-    CalenderComponent
+    CalenderComponent,
+    RentListComponent,
+    MyAreaComponent
   ],
   imports: [
     BrowserModule,

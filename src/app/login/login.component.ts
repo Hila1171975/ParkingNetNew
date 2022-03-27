@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
             this.UserService.userId = this.existUser.Id
             this.UserService.userName=this.existUser.Name
             this.UserService.isConnected=true
-            alert(this.existUser.Name + " ברוך הבא")
+            // alert(this.existUser.Name + " ברוך הבא")
             this.router.navigate(['/nav/myhome']) //מנווט לדף הבית
           }
         })

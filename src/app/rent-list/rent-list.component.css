@@ -1,5 +1,10 @@
+div{
+    float: right;
+    width: 100%;
+}
+
 .title{
-    height: 100px;
+    height: 160px;
 }
 
 p{
@@ -16,6 +21,7 @@ p{
     background-image: linear-gradient(to right, #00ccff, #08cded,#15ced1, #00d4cd, #00d4b5, #0ed4aa, #20d39d, #31d28f);
     width: 100px;
     height: 2px;
-    margin-right: 590px;
+    margin-right: 580px;
     margin-top: 3px;
 } 
+

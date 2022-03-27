@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild, ElementRef, NgZone} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { Rent } from 'src/classes/Rent';
 import { FindParkingService } from '../Services/find-parking.service';
@@ -12,25 +12,29 @@ import { MapsAPILoader } from '@agm/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  date!: Date;
   newRent = new Rent();
   TodayDate = new Date();
   TodayEndDate = new Date();
   myLocation: String = "";
   submited = false;
   lat!: number;
-  lan!: number ;
+  lan!: number;
   address!: string;
-  private geoCoder:any;
+  private geoCoder: any;
 
   @ViewChild('search')
-  public searchElementRef: ElementRef| undefined;
-
-  constructor(public FindParkingService: FindParkingService, public router: Router,  private mapsAPILoader: MapsAPILoader,private ngZone: NgZone) {
+  public searchElementRef: ElementRef | undefined;
+  ezer!: Date;
+  constructor(public FindParkingService: FindParkingService, public router: Router, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
+    debugger
     this.newRent.EntryDate = this.TodayDate;
     this.newRent.EntryHour = this.TodayDate;
-    this.newRent.LeavingDate = this.TodayDate;
-    this.newRent.LeavingHour = this.TodayDate;
-    this.newRent.LeavingHour?.setHours(0, 0, 0)
+    this.newRent.LeavingDate = this.newRent.EntryDate;
+
+    this.ezer = new Date(this.TodayDate.getFullYear(), this.TodayDate.getMonth(), this.TodayDate.getDate(), 0, 0, 0);
+
+    this.newRent.LeavingHour = this.ezer;
 
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
@@ -39,14 +43,15 @@ export class SearchComponent implements OnInit {
   }
 
   public handleAddressChange(address: Address) {
-    
+
     this.lat = address.geometry.location.lat()
     debugger;
     this.lan = address.geometry.location.lng()
 
   }
   ngOnInit() {
-   
+    this.date = new Date;
+
   }
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
@@ -58,8 +63,8 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  getAddress(latitude:number, longitude:number) {
-    this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results:any, status:any) => {
+  getAddress(latitude: number, longitude: number) {
+    this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results: any, status: any) => {
       if (status === 'OK') {
         if (results[0]) {
           this.address = results[0].formatted_address;
@@ -69,23 +74,31 @@ export class SearchComponent implements OnInit {
       } else {
         window.alert('Geocoder failed due to: ' + status);
       }
-    
+
     });
   }
 
   FindParking() {
-    debugger
-    //  if (this.myLocation != "") {
-    alert("ok" + this.myLocation)
+    debugger;
+    if (this.newRent.LeavingDate! < this.newRent.EntryDate!)
+      this.newRent.LeavingDate = this.newRent.EntryDate;
     this.FindParkingService.Search3Parkings(this.lat, this.lan, this.newRent).subscribe(data => {
       if (this.FindParkingService.closestParking = data)
+      {
+        debugger;
         if (this.FindParkingService.closestParking.length == 0)
+        {
           alert("לא נמצאו חניות")
-        else {
           this.router.navigate(['/nav/myMap'])
-
+        }          
+        else {
+          this.FindParkingService.myLat = this.lat
+          this.FindParkingService.myLan = this.lan
+          this.router.navigate(['/nav/myMap'])
         }
-    }, err => { console.log("err") }
+      }
+        
+    }, err => { console.log("err",err);}
     );
     // }
     // else {

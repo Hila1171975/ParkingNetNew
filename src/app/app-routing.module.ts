@@ -8,9 +8,11 @@ import { Footer1Component } from './footer1/footer1.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MapComponent } from './map/map.component';
+import { MyAreaComponent } from './my-area/my-area.component';
 import { NavComponent } from './nav/nav.component';
 import { ParkingListComponent } from './parking-list/parking-list.component';
 import { PaymentComponent } from './payment/payment.component';
+import { RentListComponent } from './rent-list/rent-list.component';
 import { SearchComponent } from './search/search.component';
 
 
@@ -27,9 +29,9 @@ const routes: Routes = [
       { path: "myFooter", component: Footer1Component },
       { path: "myMap", component: MapComponent },
       { path: "myCalender", component: CalenderComponent },
-      { path: "contact", component: ContactComponent }
-
-
+      { path: "contact", component: ContactComponent },
+      { path: "myRentList", component: RentListComponent },
+      { path: "myArea", component: MyAreaComponent }
     ]
   },
 ];

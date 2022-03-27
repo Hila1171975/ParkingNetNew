@@ -35,6 +35,7 @@
     <div class="logo"><a href="#"><img src='../assets/img/logo.png'></a></div>
 
     <div class="dropdown">
+      <li class="i2"><div><img src='../assets/icon/search.png' height="34px" style=" margin-bottom:6px ;"><a routerLink="/nav/search">חיפוש חניה</a></div></li>
       <ul>
         <li>
           <div><img src='../assets/icon/Asset9.png' height="36px"></div>
@@ -42,10 +43,14 @@
           <a id="ii">שלום {{UserService.userName}}</a>
           <ul>
             <li *ngIf="!UserService.isConnected"><a routerLink="/nav/login">התחבר</a></li>
-            <li><a routerLink="/nav/payment">תשלום</a></li>
-            <li><a routerLink="/nav/bankDetails">פרטי בנק</a></li>
+            <!-- <li *ngIf="!UserService.isConnected"><button type="button" id="modalBtn" data-toggle="modal" data-target="#myModal">התחבר</button></li> -->
+            <!-- <li><a routerLink="/nav/payment">תשלום</a></li> -->
+            <!-- <li><a routerLink="/nav/bankDetails">פרטי בנק</a></li> -->
+            <li><a routerLink="/nav/myArea">אזור אישי</a></li>
             <li *ngIf="UserService.isConnected"><a routerLink="/nav/myParkingList">החניות שלי</a></li>
             <li *ngIf="!UserService.isConnected"><a routerLink="/nav/login">החניות שלי</a></li>
+            <li *ngIf="UserService.isConnected"><a routerLink="/nav/myRentList">ההשכרות שלי</a></li>
+            <li *ngIf="!UserService.isConnected"><a routerLink="/nav/login">ההשכרות שלי</a></li>
             <li *ngIf="UserService.isConnected"><a href="#">התנתק</a></li>
 
           </ul>
@@ -54,6 +59,5 @@
     </div>
   </nav>
 </body>
-
-</html>
 <router-outlet></router-outlet>
+</html>

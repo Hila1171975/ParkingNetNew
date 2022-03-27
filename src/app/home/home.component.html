@@ -42,21 +42,11 @@
         <img id="img2" src='../assets/icon/Asset1.png'>
         <p>לפרסום החניה שלכם</p>
         <!-- <a routerLink="/nav/login"><img id="img3" src='../assets/icon/Asset46.png'></a> -->
+        <div id="btnDIV" *ngIf="UserService.isConnected"><a routerLink="/nav/myParkingList"><img id="img3" src='../assets/icon/Asset54.png'></a></div>
         <div id="btnDIV" *ngIf="!UserService.isConnected"><a routerLink="/nav/login"><img id="img3" src='../assets/icon/Asset46.png'></a></div>
-        <!-- לבקש מהלל כפתור לחץ כאן במקרה שכבר מחובר ורוצה לפרסם חניה -->
-        <!-- <div id="btnDIV" *ngIf="UserService.isConnected"><a routerLink="/nav/login"><img id="img3" src='../assets/icon/Asset47.png'></a></div> -->
     </div>
 </div>
-<!-- <div *ngIf="showOrHidePopup" style=" left: 50%
-top= 30%,
-position= 'absolute',
-z-index= 1">
-    <app-login></app-login>
-</div> -->
 
-<!-- <div *ngIf="showOrHidePopup" style="width: 200px; height: 200px; background-color: red;"></div> -->
-
-<!-- <google-map></google-map> -->
 <app-footer1></app-footer1>
 
 <router-outlet></router-outlet>

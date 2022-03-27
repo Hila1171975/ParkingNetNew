@@ -1,22 +1,25 @@
-<form  #myForm="ngForm" class="form-group">
+<form #myForm="ngForm" class="form-group">
     <div class="row">
         <div class="icn"><img src='../assets/icon/Asset41.png'></div>
         <div class="div1">
             <div><img src='../assets/icon/Asset7.png'>הכנס מיקום</div>
             <!-- <input type="text" placeholder="מיקומך הנוכחי" id="location" name="location" [(ngModel)]="myLocation" required #location="ngModel"> -->
-            <input ngx-google-places-autocomplete  #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" value="{{address}}"/>
-         
+            <input ngx-google-places-autocomplete #placesRef="ngx-places"
+                (onAddressChange)="handleAddressChange($event)" value="{{address}}" />
+
             <!-- <div  class="alert-danger" *ngIf="location.invalid && ( location.dirty || location.touched)&&submited">
                 <p *ngIf="location.errors?.['required']">שדה חובה</p>   
               </div> -->
         </div>
         <div class="div1">
             <div><img src='../assets/icon/Asset5.png'>הכנס שעה</div>
-            <input type="time" placeholder="שעה נוכחית" id="EntryHour" name="EntryHour" value="{{TodayDate| date:'HH-mm'}}" [(ngModel)]="newRent.EntryHour" required #EntryHour="ngModel">
+            <input type="time" placeholder="שעה נוכחית" id="EntryHour" name="EntryHour"
+                value="{{TodayDate| date:'HH-mm'}}" [(ngModel)]="newRent.EntryHour" required #EntryHour="ngModel">
         </div>
         <div class="div1">
             <div><img src='../assets/icon/Asset4.png'>הכנס תאריך</div>
-            <input type="date" placeholder="תאריך נוכחי" id="EntryDate" name="EntryDate" value="{{TodayDate| date:'yyyy-mm-dd'}}"  [(ngModel)]="newRent.EntryDate" required #EntryDate="ngModel">
+            <input type="date" placeholder="תאריך נוכחי" id="EntryDate" name="EntryDate"
+                value="{{TodayDate| date:'yyyy-mm-dd'}}" [(ngModel)]="newRent.EntryDate" required #EntryDate="ngModel">
         </div>
     </div>
     <br><br><br><br>
@@ -26,19 +29,64 @@
         <div class="icn"><img src='../assets/icon/Asset40.png'></div>
         <div class="div1">
             <div><img src='../assets/icon/Asset5.png'>הכנס שעה</div>
-            <input type="time" placeholder="עד 00:00" id="LeavingHour" name="LeavingHour" value="{{TodayDate| date:'HH-mm'}}" [(ngModel)]="newRent.LeavingHour" required #LeavingHour="ngModel">
+            <input type="time" placeholder="עד 00:00" id="LeavingHour" name="LeavingHour"
+                value="{{TodayDate| date:'HH-mm'}}" [(ngModel)]="newRent.LeavingHour" required #LeavingHour="ngModel">
         </div>
         <div class="div1">
             <div><img src='../assets/icon/Asset4.png'>הכנס תאריך</div>
-            <input type="date" placeholder="היום"  id="LeavingDate" name="LeavingDate" value="{{TodayDate| date:'yyyy-mm-dd'}}" [(ngModel)]="newRent.LeavingDate" required #LeavingDate="ngModel">
+            <!-- <input type="date" name="fromD" #FromDate="ngModel" required [(ngModel)]="fromDate"> -->
+
+            <input type="date" placeholder="היום" id="LeavingDate" name="LeavingDate"
+                min="{{TodayDate| date:'yyyy-MM-dd'}}" value="{{TodayDate| date:'yyyy-mm-dd'}}"
+                [(ngModel)]="newRent.LeavingDate" required #LeavingDate="ngModel">
         </div>
     </div>
     <br><br><br><br>
     <div class="row">
         <!-- <a routerLink="/nav/myMap"><img class="btnSearch" src='../assets/icon/Asset39.png'></a> -->
         <a><img class="btnSearch" src='../assets/icon/Asset39.png' (click)="FindParking()"></a>
-   
+
     </div>
+    <!-- {{date}} -->
+    <!-- <input type="date"  value={{date}}> -->
 
 </form>
+
+
+
+
+    <!-- <li><a data-toggle="modal" data-target="#myModalLogin">111</a></li>
+    <li><a data-toggle="modal" data-target="#myModalLoginCompany">222</a></li>
+
+    <div class="container mt-3">
+        <div class="modal fade" id="myModalLogin" style="margin-top:7%;">
+            <div class="modal-dialog" style="width:55%;">
+                <div class="modal-content" style="height: 495px;">
+                    <button type="button" class="close" data-dismiss="modal"
+                        style="margin-right: 1.5%; margin-top: 1.5%;">x</button>
+                    <br><br>
+                    <h1 class="h1"> כניסה לאתר</h1>
+                    <form action="/action_page.php" #myForm2="ngForm" style="direction: rtl;">
+                        <div class="form-group"><br>
+                            <label for="email" style="margin-right: 5%;">כתובת דוא"ל</label>
+                            <input type="email" #ngEmail1="ngModel" [(ngModel)]="clientService.newClient.EmailAddress"
+                                class="input form-control" id="Email" name="Email"
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+
+                            <div class="error" *ngIf="ngEmail1.invalid&&(ngEmail.touched||ngEmail1/dirty)">
+                                <i *ngIf="ngEmail1.error!.pattern">כתובת המייל אינה תקינה</i>
+                            </div><br>
+                            <div class="form-group">
+                                <label for="pwd" style="margin-right: 5%;">סיסמא</label>
+                                <input type="password" #ngPassword1="ngModel" [(ngModel)]="clientService.newClient.Password"
+                                class="input1 form-control" id="Password" name="Password" required>
+                                <img src="../assets/icon/Asset40.png" class="img-responsive" style="position: absolute; right: 412px;">
+                                <button (click)="EnterClient" type="submit" class="button2 btn-lg" [disable]="!myForm2.valid" data-dismiss="modal">כניסה</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> -->
 <router-outlet></router-outlet>

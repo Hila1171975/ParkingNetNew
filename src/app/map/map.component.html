@@ -1,48 +1,60 @@
 <html lang="en" style="direction: rtl; text-align: center;">
-<map width="100px" height="100px"></map>
-
-<div><img src='../assets/img/Asset34.png' width="100%"></div>
-
 <!-- <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
     <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
       ></agm-marker>
   </agm-map> -->
+  <!-- <agm-map style="width: 100%; height: 300px;"></agm-map> -->
+  <!-- <agm-map [latitude]="31.4117257" [longitude]="35.0818155" [zoom]="10" style="width: 100%; height: 200px;" >
+    <agm-marker [latitude]=" 31.699013018621184" [longitude]="35.10465183518265">
+      <agm-info-window>דרכי איש 6, ביתר עילית</agm-info-window></agm-marker>
+      <agm-marker [latitude]="31.699355133149805" [longitude]="35.1035194278321">
+        <agm-info-window>דרכי איש 10, ביתר עילית</agm-info-window></agm-marker>
+        <agm-marker [latitude]="31.699058260905737" [longitude]="35.105558403145317">
+            <agm-info-window>ישמח ישראל 19, ביתר עילית</agm-info-window></agm-marker>
+  </agm-map> -->
 
-<div class="title">
-    <div>
-        <p>החניות הקרובות ביותר</p>
-    </div>
-    <div class="underLine"></div>
-    <a style="margin-right: 301px; float: right; margin-top: 24px;" routerLink="/nav/editParkingDetails/0"><img
-            src="../assets/icon/hanaia.png" width="170px"></a>
+  <div class="container">  
+    <agm-map style="width: 1010px; height: 300px;"
+       [latitude]='FindParkingService.myLat' 
+       [longitude]='FindParkingService.myLan'
+       [zoom]='zoom'
+       >
+       <!-- <agm-map [latitude]="FindParkingService.myLat" [longitude]="FindParkingService.myLan" [zoom]="16" style="width: 100%; height: 200px;" > -->
+<!--         
+        <agm-marker 
+            *ngFor="let marker of FindParkingService.closestParking" 
+            [latitude]="marker.Lat" 
+              [longitude]="marker.Lan">    
+                  <agm-info-window #infoWindow>
+                      {{ marker.label }}
+                </agm-info-window>
+        </agm-marker> -->
+        
+    </agm-map>
 </div>
 
-<div class="tbl">
-    <table style="font-size: 30px; width: 100%; margin-top: 50px;">
-        <tr *ngFor="let item of FindParkingService.closestParking">
-            <th> UserId{{item.UserId}}</th>
-            <th><img *ngIf="item.IMG1" src="./../../assets/gallery/{{item.IMG1}}"
-                    style="background-image: none; margin: 0px;margin-right: 5px;" height="50px">
-                <img *ngIf="item.IMG2" src="./../../assets/gallery/{{item.IMG2}}"
-                    style="background-image: none; margin: 0px;margin-right: 5px;" height="50px">
-                <img *ngIf="item.IMG3" src="./../../assets/gallery/{{item.IMG3}}"
-                    style="background-image: none; margin: 0px; margin-right: 5px;  " height="50px">
-            </th>
+<div class="title">
+    <p>החניות הקרובות ביותר</p>
+    <div class="underLine"></div>
+</div>
 
-            <th><a routerLink="/nav/editParkingDetails/{{item.Id}}"><img src="../assets/icon/Asset16.png"
-                        width="170px"></a></th>
-            <br>
-            <br>
-            <!-- <tr *ngFor="let item of lUserParking">
-            <th><div class="underLine" style="width: 100%; margin-right: 250px;"></div></th>
-          </tr>  -->
-            <!-- <div class="underLine" style="width: 100%; margin-right: 250px;"></div> -->
-    </table>
+<div style="background-color: #f2f2f2;">
+    <table style="font-size: 30px; margin-top: 20px; margin-right: 0px; width: 1200px;"  >
+          <tr *ngFor="let item of FindParkingService.closestParking">
+            <th style="text-align: right; width: 490px; padding-right: 30px;"> {{item.Address}}</th>
+            <!-- <th style="width: 300px;"><img *ngIf="item.IMG1" src="./../../assets/gallery/{{item.IMG1}}" style="background-image: none;margin-left: 25px;" height="50px">
+            <img *ngIf="item.IMG2" src="./../../assets/gallery/{{item.IMG2}}" style="background-image: none; margin-left: 25px;" height="50px">
+            <img *ngIf="item.IMG3" src="./../../assets/gallery/{{item.IMG3}}" style="background-image: none;margin-left: 25px;  " height="50px"></th>
+         
+            <th style="text-align: left; padding-left: 20px;"><a routerLink="/nav/editParkingDetails/{{item.Id}}"><img src="../assets/icon/Asset14.png" width="170px"></a></th>
+            <th style="text-align: left; padding-left: 20px;"><a routerLink="/nav/editParkingDetails/{{item.Id}}"><img src="../assets/icon/Asset33.png" width="170px"></a></th>
+           <br>      -->
+           <br>
+      </table>
 
 </div>
 
 <app-footer1></app-footer1>
-
 </html>
 
 <router-outlet></router-outlet>

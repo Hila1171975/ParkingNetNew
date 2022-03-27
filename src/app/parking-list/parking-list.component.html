@@ -5,20 +5,18 @@
 <div class="title">
     <div><p>החניות שלי</p></div>
     <div class="underLine"></div>
-    <a style="margin-right: 301px; float: right; margin-top: 24px;" routerLink="/nav/editParkingDetails/0"><img src="../assets/icon/hanaia.png" width="170px" ></a>
+    <a style="margin-right: 310px; float: right; margin-top: 24px;" routerLink="/nav/editParkingDetails/0"><img src="../assets/icon/hanaia.png" width="170px" ></a>
 </div>
 
-<div class="tbl">
-    <table style="font-size: 30px; width: 100%; margin-top: 50px;"  >
+<div id="tbl" style="background-color: #f2f2f2;">
+    <table style="font-size: 30px; margin-top: 50px; margin-right: 0px; width: 1200px;"  >
           <tr *ngFor="let item of lUserParking">
-            <th> UserId{{item.UserId}}</th>
-            <!-- <th>{{item.HouseNum}}</th>
-            <th>{{item.CityId}}</th> -->
-            <th><img *ngIf="item.IMG1" src="./../../assets/gallery/{{item.IMG1}}" style="background-image: none; margin: 0px;margin-right: 5px;" height="50px">
-            <img *ngIf="item.IMG2" src="./../../assets/gallery/{{item.IMG2}}" style="background-image: none; margin: 0px;margin-right: 5px;" height="50px">
-            <img *ngIf="item.IMG3" src="./../../assets/gallery/{{item.IMG3}}" style="background-image: none; margin: 0px; margin-right: 5px;  " height="50px"></th>
+            <th style="text-align: right; width: 490px; padding-right: 30px;"> {{item.Address}}</th>
+            <th class="pic" style="width: 350px;"><img *ngIf="item.IMG1" src="./../../assets/gallery/{{item.IMG1}}" style="background-image: none;margin-left: 25px;" height="50px">
+            <img *ngIf="item.IMG2" src="./../../assets/gallery/{{item.IMG2}}" style="background-image: none; margin-left: 25px;" height="50px">
+            <img *ngIf="item.IMG3" src="./../../assets/gallery/{{item.IMG3}}" style="background-image: none;margin-left: 25px;  " height="50px"></th>
          
-            <th><a routerLink="/nav/editParkingDetails/{{item.Id}}"><img src="../assets/icon/Asset16.png" width="170px"></a></th>
+            <th style="text-align: left; padding-left: 40px;"><a routerLink="/nav/editParkingDetails/{{item.Id}}"><img src="../assets/icon/Asset16.png" width="170px"></a></th>
            <br>     
            <br>
            <!-- <tr *ngFor="let item of lUserParking">

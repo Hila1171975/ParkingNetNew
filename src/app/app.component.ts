@@ -33,7 +33,7 @@ export class AppComponent implements OnInit  {
 
 
 ngOnInit(): void {
-    this.router.navigate(['/nav/contact']);
+    this.router.navigate(['/nav/myArea']);
    //this. location();
   }
 

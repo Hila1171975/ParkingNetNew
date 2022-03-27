@@ -9,7 +9,7 @@
       <label for="Password">סיסמא:</label><br>
       <input type="password" placeholder="הכנס סיסמא" id="Password" name="Password" [(ngModel)]="existUser.Password" required #Password="ngModel">
     </div>
-    <img id="img1" src='../assets/icon/Asset49.png' (click)="getUser()">
+    <img id="img1" src='../assets/icon/Asset49.png' data-dismiss="modal" (click)="getUser()">
   </form>
 </div>
 
@@ -51,11 +51,11 @@
        <br>
 
     </div>
-    <img id="img2" src='../assets/icon/Asset48.png' (click)="addUser()">
+    <img id="img2" src='../assets/icon/Asset48.png' data-dismiss="modal" (click)="addUser()" >
 
   </form>
 </div>
 </div>
-<app-footer1></app-footer1>
+<!-- <app-footer1></app-footer1> -->
 <router-outlet></router-outlet>
 

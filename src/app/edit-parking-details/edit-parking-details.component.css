@@ -90,6 +90,20 @@ form label{
     height: 100px;    
   }
 
+  textarea{
+    /* width: 220px;
+    background-color: whitesmoke;
+    border-image:linear-gradient(to right, #00ccff, #08cded,#15ced1, #00d4cd, #00d4b5, #0ed4aa, #20d39d, #31d28f)1;
+    font-size: large;
+    border-width: 2px;
+    float: right; */
+
+    width: 400px;
+    height: 80px;
+    /* border: none; */
+    border: black solid 1.5px;
+}
+
 /* ================================= Gallery ================================= */
   /* The grid: Four equal columns that floats next to each other */
 /* .column {

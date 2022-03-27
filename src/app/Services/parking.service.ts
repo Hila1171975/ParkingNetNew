@@ -36,6 +36,7 @@ export class ParkingService {
     // הוספת חניה
     addParking(p:Parking):Observable<boolean>
     {
+      debugger;
       return this.http.put<boolean>(this.url+"addParking",p)
     }
 
