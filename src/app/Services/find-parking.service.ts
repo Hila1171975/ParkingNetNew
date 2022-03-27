@@ -19,5 +19,6 @@ export class FindParkingService {
   Search3Parkings(lat:number, lan:number,r:Rent):Observable<Array<Parking>>
   {
     return this.httpClient.post<Array<Parking>>(this.url+ 'Search3Parkings/'+ lat + '/' + lan+'/1', r)
+    
   }
 }

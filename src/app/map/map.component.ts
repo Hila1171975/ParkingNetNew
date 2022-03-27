@@ -15,6 +15,7 @@ export class MapComponent implements OnInit {
   lParking:Array<Parking>=new Array<Parking>()
   lUserParking:Array<Parking>=new Array<Parking>()
 
+
   zoom=16
   
   ngOnInit(): void {
@@ -24,5 +25,29 @@ export class MapComponent implements OnInit {
     }, err=>{alert("שגיאה ב parking-list")})
 
   }
+  
+
+    lat = this.FindParkingService.myLat;
+  long = this.FindParkingService.myLan;
+  // zoom=7;
+  
+  m2=this.FindParkingService.closestParking
+  markers = [
+        {
+            lat: 31.699355133149805,
+            lng: 35.1035194278321,
+            label: 'Surat'
+        },
+        {
+            lat: 31.700078071929429,
+            lng: 35.107458218466185,
+            label: 'Ahmedabad'
+        }
+        // {
+        //     lat: 22.2736308,
+        //     lng: 70.7512555,
+        //     label: 'Rajkot'
+        // }
+    ];
 
 }

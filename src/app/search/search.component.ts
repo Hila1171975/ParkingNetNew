@@ -5,6 +5,7 @@ import { FindParkingService } from '../Services/find-parking.service';
 import { Address } from 'ngx-google-places-autocomplete/objects/address';
 import { MapsAPILoader } from '@agm/core';
 
+export class ProgressSpinnerOverviewExample {}
 
 @Component({
   selector: 'app-search',
@@ -22,6 +23,7 @@ export class SearchComponent implements OnInit {
   lan!: number;
   address!: string;
   private geoCoder: any;
+  flagSpiner=false;
 
   @ViewChild('search')
   public searchElementRef: ElementRef | undefined;
@@ -53,6 +55,7 @@ export class SearchComponent implements OnInit {
     this.date = new Date;
 
   }
+  
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -79,13 +82,16 @@ export class SearchComponent implements OnInit {
   }
 
   FindParking() {
+    this.flagSpiner=true;
     debugger;
     if (this.newRent.LeavingDate! < this.newRent.EntryDate!)
       this.newRent.LeavingDate = this.newRent.EntryDate;
     this.FindParkingService.Search3Parkings(this.lat, this.lan, this.newRent).subscribe(data => {
+      this.flagSpiner=false;
       if (this.FindParkingService.closestParking = data)
       {
         debugger;
+        
         if (this.FindParkingService.closestParking.length == 0)
         {
           alert("לא נמצאו חניות")
