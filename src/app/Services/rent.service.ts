@@ -10,15 +10,17 @@ export class RentService {
   url:string="https://localhost:44370/api/Rent/"
   constructor(public httpClient:HttpClient) { }
 
-  // הוספת חשבון בנק לרשימה
-  addRent(r:Rent):Observable<number>
+  // הוספת השכרה לרשימה
+  addRent(r:Rent):Observable<boolean>
   {
-    return this.httpClient.put<number>(this.url+'addRent',r)
+    debugger
+    return this.httpClient.put<boolean>(this.url+'addRent',r)
   }
 
-  //הסרת חשבון בנק מהרשימה
+  //הסרת השכרה מהרשימה
   deleteRent(id:number):Observable<boolean>
   {
     return this.httpClient.delete<boolean>(this.url+ 'deleteRent/'+id)
   }
+  
 }

@@ -76,9 +76,10 @@ input {
      margin-top: 20PX;
  }
 
-/* .alert-danger{
+.alert-danger{
     width: 200px;
     height: 15px;
     float: right;
     z-index: 10;
-} */
+    padding-bottom: 6px;
+}

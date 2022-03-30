@@ -15,7 +15,8 @@
             <h1 style="font-weight: 900; font-size: 30px;">כתובת החניה:</h1><br>
             <!-- <input class="inp1" type="text" placeholder="עיר, רחוב, מספר בית..." name="Address"
                 [(ngModel)]="newParking.Address"  required> -->
-            <input class="inp1" name="Address" [(ngModel)]="newParking.Address"  required ngx-google-places-autocomplete  #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
+            <input class="inp1" name="Address" [(ngModel)]="newParking.Address" required ngx-google-places-autocomplete
+                #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" />
             <br><br>
             <label>זמני השכרה:</label>
             <a routerLink="/nav/myCalender">
@@ -61,8 +62,17 @@
             <br>
             <h1 style="font-weight: 900; font-size: 30px;">הערות:</h1><br>
             <textarea name="messages" required></textarea><br>
-            <label>זמן ביטול מראש:</label> <input style="margin-right: 10px; width: 100px; height: 24px;" type="number"
-                placeholder="1" id="cancelTime" name="cancelTime">
+            <!-- <label>זמן ביטול מראש:</label> <input style="margin-right: 10px; width: 100px; height: 24px;" type="number"
+                placeholder="1" id="cancelTime" name="cancelTime"> -->
+
+
+            <label>זמן ביטול מראש:</label>
+            <input style="margin-right: 10px; width: 200px; height: 24px;" type="number" placeholder="1" id="cancelTime"
+                name="cancelTime" [(ngModel)]="newParking.CancelTime" max="24" #CancelTime="ngModel">
+            <div class="alert-danger" *ngIf="CancelTime.invalid && (CancelTime.dirty || CancelTime.touched)">
+                <p *ngIf="CancelTime.errors">ביטול מראש אפשרי יותר מ-24 שעות</p>
+            </div><br>
+
         </form>
     </div>
 
@@ -76,16 +86,16 @@
         </div>
         <div id="row">
             <div>
-                <img *ngIf="newParking.IMG1" src="./../../assets/gallery/{{newParking.IMG1}}" (click)="myFunction(newParking.IMG1);"
-                    style="background-image: none;" height="100px">
+                <img *ngIf="newParking.IMG1" src="./../../assets/gallery/{{newParking.IMG1}}"
+                    (click)="myFunction(newParking.IMG1);" style="background-image: none;" height="100px">
             </div>
-            <div >
-                <img *ngIf="newParking.IMG2" src="./../../assets/gallery/{{newParking.IMG2}}" (click)="myFunction(newParking.IMG2);"
-                    style="background-image: none;" height="100px">
+            <div>
+                <img *ngIf="newParking.IMG2" src="./../../assets/gallery/{{newParking.IMG2}}"
+                    (click)="myFunction(newParking.IMG2);" style="background-image: none;" height="100px">
             </div>
-            <div >
-                <img *ngIf="newParking.IMG3" src="./../../assets/gallery/{{newParking.IMG3}}" (click)="myFunction(newParking.IMG3);"
-                    style="background-image: none;" height="100px">
+            <div>
+                <img *ngIf="newParking.IMG3" src="./../../assets/gallery/{{newParking.IMG3}}"
+                    (click)="myFunction(newParking.IMG3);" style="background-image: none;" height="100px">
             </div>
         </div>
 
@@ -95,7 +105,8 @@
             <!-- <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span> -->
 
             <!-- Expanded image -->
-            <img *ngIf="bigImage" id="expandedImg" style="height: 400px;width:min-content;" src="./../../assets/gallery/{{bigImage}}">
+            <img *ngIf="bigImage" id="expandedImg" style="height: 400px;width:min-content;"
+                src="./../../assets/gallery/{{bigImage}}">
 
             <!-- Image text -->
             <div id="imgtext"></div>

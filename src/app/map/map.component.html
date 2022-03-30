@@ -30,6 +30,10 @@
     <table style="font-size: 30px; margin-top: 20px; margin-right: 0px; width: 1200px;"  >
           <tr *ngFor="let item of FindParkingService.closestParking">
             <th style="text-align: right; width: 490px; padding-right: 30px;"> {{item.Address}}</th>
+
+    
+            <th style="text-align: right; width: 490px; padding-right: 30px;"><a><img src="../assets/icon/Asset10.png" (click)="addRent(item)" width="70px"></a></th>
+            
             <!-- <th style="width: 300px;"><img *ngIf="item.IMG1" src="./../../assets/gallery/{{item.IMG1}}" style="background-image: none;margin-left: 25px;" height="50px">
             <img *ngIf="item.IMG2" src="./../../assets/gallery/{{item.IMG2}}" style="background-image: none; margin-left: 25px;" height="50px">
             <img *ngIf="item.IMG3" src="./../../assets/gallery/{{item.IMG3}}" style="background-image: none;margin-left: 25px;  " height="50px"></th>

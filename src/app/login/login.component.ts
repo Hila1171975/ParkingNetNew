@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Users } from 'src/classes/Users';
+import { FindParkingService } from '../Services/find-parking.service';
 import { UserService } from '../Services/user.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   existUser: Users = new Users()
   repeatPassword: String = ""
   userId: number = -2
-  constructor(public UserService: UserService, public router: Router) { }
+  constructor(public UserService: UserService, public router: Router, public FindParkingService: FindParkingService) { }
 
   //הוספת משתמש
   addUser() {
@@ -38,15 +39,19 @@ export class LoginComponent implements OnInit {
       this.UserService.isExist(this.existUser.Name, this.existUser.Password)
         .subscribe(suc => {
           this.existUser.Id = suc;
+          debugger
           if (this.existUser.Id == -1) {
             alert("המשתמש אינו קיים, אנא הירשם תחילה")
           }
           else {
             this.UserService.userId = this.existUser.Id
-            this.UserService.userName=this.existUser.Name
-            this.UserService.isConnected=true
+            this.UserService.userName = this.existUser.Name
+            this.UserService.isConnected = true
             // alert(this.existUser.Name + " ברוך הבא")
-            this.router.navigate(['/nav/myhome']) //מנווט לדף הבית
+            if (this.FindParkingService.payment == true)
+              this.router.navigate(['/nav/payment']) //מנווט לדף התשלום
+            else
+              this.router.navigate(['/nav/myhome']) //מנווט לדף הבית
           }
         })
   }
