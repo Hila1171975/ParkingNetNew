@@ -1,6 +1,7 @@
-<div class="loader" *ngIf="flagSpiner"></div>
 
 <form #myForm="ngForm" class="form-group">
+<div class="loader" *ngIf="flagSpiner"></div>
+
     <div class="row">
         <div class="icn"><img src='../assets/icon/Asset41.png'></div>
         <div class="div1">
@@ -21,7 +22,7 @@
         <div class="div1">
             <div><img src='../assets/icon/Asset4.png'>הכנס תאריך</div>
             <input type="date" placeholder="תאריך נוכחי" id="EntryDate" name="EntryDate"
-                value="{{TodayDate| date:'yyyy-mm-dd'}}" [(ngModel)]="newRent.EntryDate" required #EntryDate="ngModel">
+            min="{{TodayDate| date:'yyyy-MM-dd'}}" value="{{TodayDate| date:'yyyy-mm-dd'}}" [(ngModel)]="newRent.EntryDate" required #EntryDate="ngModel">
         </div>
     </div>
     <br><br><br><br>

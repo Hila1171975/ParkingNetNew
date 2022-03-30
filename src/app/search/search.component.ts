@@ -86,6 +86,9 @@ export class SearchComponent implements OnInit {
     debugger;
     if (this.newRent.LeavingDate! < this.newRent.EntryDate!)
       this.newRent.LeavingDate = this.newRent.EntryDate;
+      console.log('b', this.newRent.LeavingHour);
+      console.log(this.newRent);
+      
     this.FindParkingService.Search3Parkings(this.lat, this.lan, this.newRent).subscribe(data => {
       this.flagSpiner=false;
       if (this.FindParkingService.closestParking = data)
@@ -106,10 +109,5 @@ export class SearchComponent implements OnInit {
         
     }, err => { console.log("err",err);}
     );
-    // }
-    // else {
-
-    //   this.submited = true;
-    // }
   }
 }

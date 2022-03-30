@@ -41,6 +41,12 @@ export class UserService {
   isExist(name: string, password: string): Observable<number> {
     return this.http.get<number>(this.url + 'isExist/' + name + '/' + password)
   }
+
+// שליפת משתמש לפי קוד
+  GetUserById(id:number):Observable<Users>
+   {
+     return this.http.get<Users>(this.url+ 'GetUserById/'+id)
+   }
 }
 
 
